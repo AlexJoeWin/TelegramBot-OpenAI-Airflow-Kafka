@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.gitignore
+.git/
+
+NOTES.md
+
+.config/
+.logs/
+.plugins/
+
+airflow.cfg

@@ -1,0 +1,6 @@
+kafka-python~=2.3.0
+openai~=2.8.1
+python-telegram-bot~=22.5
+db-sqlite3
+six
+python-dotenv~=1.2.1
