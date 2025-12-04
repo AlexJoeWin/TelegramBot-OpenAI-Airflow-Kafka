@@ -1,0 +1,9 @@
+OPEN BUGS
+- topic‑init container can’t reach the Kafka broker
+- enable local access to SQLite database
+- airflow-worker-1 container isn’t starting
+
+GOOD NEWS
+- bot is running and responds accordingly
+- Kafka broker and Zookeeper are running
+- all other airflow containers including redis and postgres are running
