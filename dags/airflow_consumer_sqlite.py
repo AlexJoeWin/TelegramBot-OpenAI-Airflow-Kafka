@@ -16,7 +16,7 @@ def consume_to_sqlite():
         # Kafka Consumer setup
         consumer = KafkaConsumer(
             'telegram_topic',
-            bootstrap_servers='localhost:9092',
+            bootstrap_servers='kafka:9092',
             auto_offset_reset='earliest',
             enable_auto_commit=True,
             group_id='sqlite-group')

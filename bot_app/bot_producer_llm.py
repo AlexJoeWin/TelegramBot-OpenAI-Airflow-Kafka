@@ -4,7 +4,7 @@ from kafka import KafkaProducer
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
 # Kafka Producer Setup
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='kafka:9092')
 client = OpenAI(api_key=OPENAI_KEY)
 
 async def handle_text(update, context):
