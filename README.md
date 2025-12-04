@@ -1,4 +1,4 @@
-# 🚀 Airflow + Kafka + Telegram Bot + OpenAI Integration
+# 🚀 Airflow + Kafka + Telegram Bot + OpenAI Integration (WORK IN PROGRESS)
 
 This project demonstrates a **modular pipeline** that connects a Telegram bot with Kafka, Airflow, OpenAI and SQLite.  
 It allows users to send messages via Telegram, process them with OpenAI, and store numeric responses in a database for downstream workflows.
