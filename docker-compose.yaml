@@ -112,18 +112,24 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     ports:
       - "9092:9092"
+    healthcheck:
+      test: [ "CMD", "bash", "-c", "echo > /dev/tcp/kafka/9092" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-  topic-init:               # SERVICE ADDED (topic also used in producer and consumer script)
+  topic-init:
     image: confluentinc/cp-kafka:7.5.0
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     entrypoint: >
       kafka-topics --create
         --topic telegram_topic
         --bootstrap-server kafka:9092
         --partitions 3
         --replication-factor 1
-      
+  
 
   bot:                      # SERVICE ADDED
     build:
@@ -136,6 +142,7 @@ services:
       - kafka
     volumes:
       - ./bot_app:/opt/airflow/bot_app
+      - ./dags:/opt/airflow/dags
 
 
   postgres:
