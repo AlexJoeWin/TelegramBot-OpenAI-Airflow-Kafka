@@ -45,8 +45,8 @@ It allows users to send messages via Telegram, process them with OpenAI, and sto
 Create a `.env` file in the project root:
 
 ```env
-OPENAI_TOKEN=your_openai_api_key
-BOT_TOKEN=your_telegram_bot_token
+OPENAI_TOKEN="<your_openai_api_key>"
+BOT_TOKEN="<your_telegram_bot_token>"
 ```
 ### 2. Build & Start Services
 
@@ -62,7 +62,15 @@ This will start:
 -   Kafka + Zookeeper
     
 -   Telegram bot producer
+
+
+## 🛠 Development Notes
+
+-   **Airflow Image**: Dockerfile was built on top of the original Airflow Dockerfile; extended from `apache/airflow:2.9.0` with extra requirements. 
     
+-   **docker-compose.yaml** was adjusted according to the Airflow documentation (see line #49 in ```docker-compose.yaml```) in order to apply the customized Dockerfile. Further extensions cover environment variables, an additional volume and the following services: Zookeeper, Kafka Broker & Topic as well as the Bot.
+    
+-   **Secrets**: Managed via `.env` file and `config.py`.
 
 ## 📖 Usage
 
@@ -88,7 +96,6 @@ This will start:
 ```bash
 sqlite3 telegram.db
 sqlite> SELECT * FROM kafka_messages;
-
 ```
 
 
@@ -115,14 +122,6 @@ sqlite> SELECT * FROM kafka_messages;
 -   Bot acknowledges and pushes `13` → Kafka → Airflow DAG → SQLite.
     
 
-## 🛠 Development Notes
-
--   **Airflow Image**: Extended from `apache/airflow:2.9.0` with extra requirements. Dockerfile was built on top of the original Airflow Dockerfile.
-    
--   **docker-compose.yaml** was adjusted to start from an own image and in order to launch Zookeeper, a Kafka broker and topic, as well as the bot.
-    
--   **Secrets**: Managed via `.env` file and `config.py`.
-    
 
 ## ⚠️ Warnings
 

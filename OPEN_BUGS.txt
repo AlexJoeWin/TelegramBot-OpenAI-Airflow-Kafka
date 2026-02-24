@@ -3,6 +3,9 @@ OPEN BUGS
 - enable local access to SQLite database
 - airflow-worker-1 container isn’t starting
 
+NEXT APPROACH
+- test: volume mount in both airflow-scheduler and airflow-worker -> volumes: - ./db:/opt/airflow/d -> should create db folder in working directory with sqlite database inside after executing the DAG)
+
 GOOD NEWS
 - bot is running and responds accordingly
 - Kafka broker and Zookeeper are running

@@ -37,7 +37,7 @@ with DAG(
     dag_id="kafka_consumer_dag",
     start_date=datetime(2025, 1, 1),
     schedule_interval="*/5 * * * *",  # runs every 5 min
-    catchup=False
+    catchup=False #no historic runs, no backfill mechanism to fill up the gap between today and January 2025
 ) as dag:
 
     kafka_task = PythonOperator(
