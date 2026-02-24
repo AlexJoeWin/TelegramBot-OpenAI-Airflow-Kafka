@@ -142,7 +142,6 @@ services:
       - kafka
     volumes:
       - ./bot_app:/opt/airflow/bot_app
-      - ./dags:/opt/airflow/dags
 
 
   postgres:
