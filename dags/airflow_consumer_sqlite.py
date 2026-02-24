@@ -18,8 +18,7 @@ def consume_to_sqlite():
             'telegram_topic',
             bootstrap_servers='kafka:9092',
             auto_offset_reset='earliest',
-            enable_auto_commit=True,
-            group_id='sqlite-group')
+            group_id='sqlite-group') #Kafka sends message to group only one time; within a group load balancing takes place between group members (consumers)
 
         print("Listening for Kafka messages...")
 
